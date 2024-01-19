@@ -18,7 +18,7 @@ class NemoAPI:
             if not data.get("error"):
                 return Data(data)
             else:
-                raise NemoAPIError(data)
+                raise NemoAPIError(data['error'])
 
     def acc_get_info(self):
         params = {
