@@ -7,5 +7,5 @@ class Data:
 	def __getattr__(self, item: str) -> 'Data':
 		return Data(self.raw.get(item))
 
-	def __str__(self) -> dict:
-		return self.raw
+	def __str__(self) -> str:
+		return str(self.raw)
