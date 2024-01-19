@@ -5,3 +5,6 @@ class NemoAPIError(Exception):
 		self.error = error
 		self.error_code = self.error['error_code']
 		self.error_msg = self.error['error_msg']
+
+	def __str__(self):
+		return f"({self.error_code}) {self.error_msg}"
