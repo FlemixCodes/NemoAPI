@@ -1,7 +1,7 @@
 import requests
 
 from .data import Data
-from .exceptions import NemoAPIError
+from .exceptions import NemoAPIError, ResponseError
 
 
 class NemoAPI:
@@ -19,6 +19,8 @@ class NemoAPI:
                 return Data(data)
             else:
                 raise NemoAPIError(data['error'])
+        else:
+            raise ResponseError("api returned a code other than 200")
 
     def acc_get_info(self):
         params = {
