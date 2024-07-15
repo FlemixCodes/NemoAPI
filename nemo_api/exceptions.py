@@ -11,7 +11,7 @@ class NemoResponseError(NemoBaseError):
 class NemoAPIError(NemoBaseError):
     """Ошибка от API"""
     
-    __slots__ = ('error', 'error_code', 'error_msg')
+    __slots__ = ('error', 'error_code', 'error_msg', 'request_params')
 
     def __init__(self, error: dict) -> None:
         self.error = error
