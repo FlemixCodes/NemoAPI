@@ -50,7 +50,7 @@ class NemoAPI:
         async with aiohttp.ClientSession() as session:
             async with session.get(url=url, params=params) as response:
                 if response.status != 200:
-                    raise NemoResponseError("Api returned a code other than 200")
+                    raise NemoResponseError("Апи не вернуло правильный ответ")
                 
                 if bytes:
                     return await response.content.read()
@@ -70,7 +70,7 @@ class NemoAPI:
         async with aiohttp.ClientSession() as session:
             async with session.post(url=url, data=params) as response:
                 if response.status != 200:
-                    raise NemoResponseError("Api returned a code other than 200")
+                    raise NemoResponseError("Апи не вернуло правильный ответ")
                 
                 if bytes:
                     return await response.content.read()

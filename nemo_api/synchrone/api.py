@@ -60,7 +60,7 @@ class NemoAPI:
             )
 
         if response.status_code != 200:
-            raise NemoResponseError("Api returned a code other than 200")
+            raise NemoResponseError("Апи не вернуло правильный ответ")
         
         data = response.json()
         if data.get("error"):
