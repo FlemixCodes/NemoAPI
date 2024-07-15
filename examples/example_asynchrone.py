@@ -7,7 +7,7 @@ async def main():
     # Создаём объект для работы с апи
     nemo_api = NemoAPI("ваш токен")
 
-    # Выполняем метод апи из категории acc (все методы сделан под стиль python acc.getInfo -> acc.get_info)
+    # Выполняем метод апи из категории utils (все методы сделан под стиль python acc.getInfo -> acc.get_info)
     response = await nemo_api.utils.get_server_time()
 
     # Также можно выполнять любые методы через request
