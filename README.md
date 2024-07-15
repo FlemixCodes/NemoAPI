@@ -1,6 +1,6 @@
 # NemoAPI
 ### Информация
-Обёртка для апи Nemo чат менеджера (vk.com/nemocm)
+Обёртка для апи Nemo чат менеджера (vk.com/nemocm)  
 Ссылка на апи: api.nemo-bot.ru
 ### Использование
 #### Синхронно (examples/example_synchrone.py)
