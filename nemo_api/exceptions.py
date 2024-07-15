@@ -17,6 +17,7 @@ class NemoAPIError(NemoBaseError):
         self.error = error
         self.error_code = self.error['error_code']
         self.error_msg = self.error['error_msg']
+        self.request_params = self.error.get("request_params")
 
     def __str__(self) -> str:
         return f"({self.error_code}) {self.error_msg}"
