@@ -1,13 +1,54 @@
 # NemoAPI
 ### Использование
+#### Синхронно (examples/example_synchrone.py)
 ```python
-from nemo_api import NemoAPI
+from nemo_api.synchrone import NemoAPI
 
-api = NemoAPI(access_token="ваш токен", version="1")
-info = api.acc_get_info() # Все методы сделаны под стиль Python (acc.getInfo -> acc_get_info)
 
-# Обращение к данным происходит через точку
-print(info.response) 
-# Но вы также можете сделать 
-print(info.raw['response'])
+def main():
+    # Создаём объект для работы с апи
+    nemo_api = NemoAPI("ваш токен")
+
+    # Выполняем метод апи из категории utils (все методы сделан под стиль python acc.getInfo -> acc.get_info)
+    response = nemo_api.utils.get_server_time()
+
+    # Также можно выполнять любые методы через request
+    response = nemo_api.request("utils.getServerTime")
+
+    # Обращаемся к данным
+    print(response['response'])
+
+    # Также можно обращаться к данным через точку
+    print(response.response)
+
+
+if __name__ == "__main__":
+    main()
+```
+#### Асинхронно (examples/example_asynchrone.py)
+```python
+import asyncio
+
+from nemo_api.asynchrone import NemoAPI
+
+
+async def main():
+    # Создаём объект для работы с апи
+    nemo_api = NemoAPI("ваш токен")
+
+    # Выполняем метод апи из категории utils (все методы сделан под стиль python acc.getInfo -> acc.get_info)
+    response = await nemo_api.utils.get_server_time()
+
+    # Также можно выполнять любые методы через request
+    response = await nemo_api.request("utils.getServerTime")
+
+    # Обращаемся к данным
+    print(response['response'])
+
+    # Также можно обращаться к данным через точку
+    print(response.response)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
 ```
