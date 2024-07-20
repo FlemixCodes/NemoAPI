@@ -68,4 +68,5 @@ class NemoAPI:
         
         if bytes:
             return response.content
+        
         return Data(data)

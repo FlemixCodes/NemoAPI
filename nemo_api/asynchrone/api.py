@@ -52,9 +52,14 @@ class NemoAPI:
                 if response.status != 200:
                     raise NemoResponseError("Апи не вернуло правильный ответ")
                 
+                data = await response.json()
+                if data.get("error"):
+                    raise NemoAPIError(data['error'])
+                
                 if bytes:
                     return await response.content.read()
-                return await response.json()
+                
+                return data
         
     async def _request_post(
         self, url: str, params: dict | None, bytes: bool = False
@@ -72,9 +77,14 @@ class NemoAPI:
                 if response.status != 200:
                     raise NemoResponseError("Апи не вернуло правильный ответ")
                 
+                data = await response.json()
+                if data.get("error"):
+                    raise NemoAPIError(data['error'])
+                
                 if bytes:
                     return await response.content.read()
-                return await response.json()
+                
+                return data
 
     async def request(
         self, 
@@ -101,9 +111,6 @@ class NemoAPI:
         
         # Задержка, чтоб все соединения aiohttp успели закрыться и не было варнингов
         await asyncio.sleep(0.330)
-        
-        if data.get("error"):
-            raise NemoAPIError(data['error'])
         
         if bytes:
             return data
