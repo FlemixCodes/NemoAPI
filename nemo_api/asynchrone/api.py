@@ -102,10 +102,10 @@ class NemoAPI:
         # Задержка, чтоб все соединения aiohttp успели закрыться и не было варнингов
         await asyncio.sleep(0.330)
         
-        if bytes:
-            return data
-        
         if data.get("error"):
             raise NemoAPIError(data['error'])
+        
+        if bytes:
+            return data
         
         return Data(data)
