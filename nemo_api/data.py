@@ -22,7 +22,7 @@ class Data:
         elif isinstance(self.raw, list) or isinstance(self.raw, tuple):
             data = self.raw[item]
         else:
-            raise KeyError(f"Key '{item}' not found")
+            raise TypeError("Объект не является списком, кортежем или словарём")
         
         return data
 
