@@ -20,3 +20,9 @@ class Account:
         Получить информацию об аккаунте
         """
         return await self.__api.request("acc.getInfo")
+    
+    async def check_premium(self) -> 'Data':
+        """
+        Получить информацию о премиум доступе аккаунта
+        """
+        return await self.__api.request("acc.checkPremium")

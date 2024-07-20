@@ -6,9 +6,11 @@ class Data:
     Удобная обёртка для работы со словарями
     
     Пример использования:
+    ```
     data = Data({"name": "John", "surname": "Green"})\n
     print(data['name'], data.name)\n
     print(data['surname'], data.surname)
+    ```
     """
     
     __slots__ = ('raw')
